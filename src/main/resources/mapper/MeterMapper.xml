@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yunhan.mapper.MeterMapper">
+
+    <select id="selectAll" resultType="map" parameterType="map" >
+        select m.*,ps.patitemsName,p.patitemstName from meter m,payitems ps,payitemst p
+        <where>m.payitemsId=ps.payitemsId and m.payitemstId=p.payitemstId
+            <if test="homeNO!=null and homeNO!=''">
+                and m.homeNO like concat('%',concat(#{homeNO},'%'))
+            </if>
+        </where>
+        ORDER BY meterID LIMIT #{begin},#{end}
+    </select>
+    <select id="selectCount" resultType="int">
+        select count(*) from meter
+        <where>1=1
+            <if test="homeNO!=null and homeNO!=''">
+                and homeNO like concat('%',concat(#{homeNO},'%'))
+            </if>
+        </where>
+    </select>
+    <insert id="add_do" parameterType="Meter">
+        insert into meter(precinct,homeNO,meterNO,clientName,payitemsId,meterReadTime,meterReadEndTime,
+lastIndex,atIndex,additional,utility,meterReadType,meterReadStatus,auditStatus,meterReadDate,meterReader,remark,payitemstId)
+values(#{precinct},#{homeNO},#{meterNO},#{clientName},#{payitemsId},#{meterReadTime},#{meterReadEndTime},#{lastIndex}
+,#{atIndex},#{additional},#{utility},#{meterReadType},'true',0,#{meterReadDate},#{meterReader},#{remark},#{payitemstId})
+   </insert>
+    <select id="selectMetersById" parameterType="int" resultType="Meter">
+       select * from meter where meterID=#{meterID}
+    </select>
+    <update id="update_do" parameterType="Meter">
+         update meter set precinct=#{precinct},homeNO=#{homeNO},meterNO=#{meterNO},clientName=#{clientName},payitemsId=#{payitemsId} ,meterReadTime=#{meterReadTime} ,meterReadEndTime=#{meterReadEndTime}
+         ,lastIndex=#{lastIndex} ,atIndex=#{atIndex} ,additional=#{additional} ,utility=#{utility} ,meterReadType=#{meterReadType} ,auditStatus=#{auditStatus}
+         ,meterReadDate=#{meterReadDate} ,meterReader=#{meterReader} ,remark=#{remark},payitemstId=#{payitemstId} where meterID=#{meterID}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from meter where meterID=#{meterID}
+    </delete>
+</mapper>

@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yunhan.mapper.ReceivablesMapper">
+    <select id="selectAll" resultType="map" parameterType="map">
+        select m.clientName,m.HomeNO,m.utility,m.precinct,m.meterReadEndTime,m.meterReadDate,ps.patitemsName,pt.patItemstName,pt.payItemstId,ps.payItemsMoney,b.buildingName,r.roomArea,c.phone,
+        (CASE
+        WHEN(ps.payitemsId=1) THEN ps.payitemsmoney+m.utility*0.3
+        WHEN(ps.payitemsId=2) THEN ps.payitemsmoney+m.utility*0.3
+        WHEN(ps.payitemsId=3) THEN ps.payitemsmoney+m.utility*0.3
+        WHEN(ps.payitemsId=4) THEN ps.payitemsmoney+m.utility*0.3
+        WHEN(ps.payitemsId=5) THEN ps.payitemsmoney+m.utility*0.3
+        WHEN(ps.payitemsId=6) THEN ps.payitemsmoney+m.utility*0.3
+        END
+        ) As 'total'
+        from meter m,payitemst pt,payitems ps,building b,louceng l,room r,clientmessage c
+        <where> m.payitemsId=ps.payitemsId and m.payitemstId=pt.payitemstId  and ps.payitemsId=b.payitemsId and b.buildingID=l.buildingID
+            and l.loucengID=r.loucengID and r.clientMessageId=c.clientMessageId and m.auditStatus=1
+            <if test="HomeNO!=null and HomeNO!=''">
+                and m.HomeNO like concat('%',concat(#{HomeNO},'%'))
+            </if>
+        </where>
+        order by m.HomeNO LIMIT #{begin},#{end}
+    </select>
+
+</mapper>
