@@ -62,7 +62,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/yunhanmanager?useUnicode=true&characterEncoding=utf8
     username: root
-    password: 123@qwe
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
     maximum-pool-size: 30
 server:
