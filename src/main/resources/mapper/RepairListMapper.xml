@@ -59,7 +59,7 @@
         select c.clientname from room r LEFT JOIN clientMessage c on c.clientMessageId=r.clientMessageId where r.roomid=#{roomid}
     </select>
     <!--查询管理员-->
-    <select id="selUser" parameterType="ComplaintSuggestion" resultType="ComplaintSuggestion">
+    <select id="selectUser" parameterType="ComplaintSuggestion" resultType="ComplaintSuggestion">
         select * from sys_user
     </select>
 

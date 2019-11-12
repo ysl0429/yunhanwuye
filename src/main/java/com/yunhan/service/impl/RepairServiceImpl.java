@@ -98,8 +98,8 @@ public class RepairServiceImpl implements  RepairService {
     }
 
     @Override
-    public List<ComplaintSuggestion> selUser(ComplaintSuggestion complaintSuggestion) {
-        return repairListMapper.selUser(complaintSuggestion);
+    public List<ComplaintSuggestion> selectUser(ComplaintSuggestion complaintSuggestion) {
+        return repairListMapper.selectUser(complaintSuggestion);
     }
 
 }

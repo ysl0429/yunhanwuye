@@ -21,5 +21,5 @@ public interface ComplaintMapper {
     //查询房间
     public List<ComplaintSuggestion> cselRooms(ComplaintSuggestion complaintSuggestion);
     //查询管理员
-    public List<ComplaintSuggestion> selUser(ComplaintSuggestion complaintSuggestion);
+    public List<ComplaintSuggestion> selectUser(ComplaintSuggestion complaintSuggestion);
 }

@@ -54,7 +54,7 @@ public class RepairController {
     public String selectRepairListById(Integer repairListId, Model model,ComplaintSuggestion complaintSuggestion){
         RepairList repairList=repairService.selectRepairListById(repairListId);
         model.addAttribute("repairList",repairList);
-        List<ComplaintSuggestion> nname=repairService.selUser(complaintSuggestion);
+        List<ComplaintSuggestion> nname=repairService.selectUser(complaintSuggestion);
         model.addAttribute("nname",nname);
         return "repairSl";
     }
@@ -72,7 +72,7 @@ public class RepairController {
     public String selectRepairListById2(Integer repairListId, Model model,ComplaintSuggestion complaintSuggestion){
         RepairList repairList=repairService.selectRepairListById2(repairListId);
         model.addAttribute("repairList",repairList);
-        List<ComplaintSuggestion> nname=repairService.selUser(complaintSuggestion);
+        List<ComplaintSuggestion> nname=repairService.selectUser(complaintSuggestion);
         model.addAttribute("nname",nname);
         return "repairSf";
     }
@@ -90,7 +90,7 @@ public class RepairController {
     public String selectRepairListById3(Integer repairListId, Model model,ComplaintSuggestion complaintSuggestion){
         RepairList repairList=repairService.selectRepairListById3(repairListId);
         model.addAttribute("repairList",repairList);
-        List<ComplaintSuggestion> nname=repairService.selUser(complaintSuggestion);
+        List<ComplaintSuggestion> nname=repairService.selectUser(complaintSuggestion);
         model.addAttribute("nname",nname);
         return "repairYwwc";
     }

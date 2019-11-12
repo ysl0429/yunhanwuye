@@ -27,5 +27,5 @@ public interface RepairService {
     //通过客户id查询房间
     public List<RepairList> cselC(Integer roomid);
     //查询管理员
-    public List<ComplaintSuggestion> selUser(ComplaintSuggestion complaintSuggestion);
+    public List<ComplaintSuggestion> selectUser(ComplaintSuggestion complaintSuggestion);
 }

@@ -44,7 +44,7 @@
     <select id="cselRooms" parameterType="ComplaintSuggestion" resultType="ComplaintSuggestion">
         select * from room
     </select>
-    <select id="selUser" parameterType="ComplaintSuggestion" resultType="ComplaintSuggestion">
+    <select id="selectUser" parameterType="ComplaintSuggestion" resultType="ComplaintSuggestion">
         select * from sys_user
     </select>
 </mapper>

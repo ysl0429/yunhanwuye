@@ -37,10 +37,10 @@ public class ComplaintController {
     //添加数据
     @RequestMapping("/addComplaint")
     public String addComplaint(ComplaintSuggestion complaintSuggestion,Model model){
+        List<ComplaintSuggestion> nName=complaintService.selectUser(complaintSuggestion);
+        model.addAttribute("nName",nName);
         List<ComplaintSuggestion> rcs=complaintService.cselRooms(complaintSuggestion);
         model.addAttribute("rcs",rcs);
-        List<ComplaintSuggestion> nname=complaintService.selUser(complaintSuggestion);
-        model.addAttribute("nname",nname);
         return "addComplaint";
     }
     @RequestMapping("/add_do2")

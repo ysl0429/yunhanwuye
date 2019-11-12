@@ -73,7 +73,7 @@ public class ComplaintServiceImpl implements  ComplaintService {
     }
 
     @Override
-    public List<ComplaintSuggestion> selUser(ComplaintSuggestion complaintSuggestion) {
-        return complaintMapper.selUser(complaintSuggestion);
+    public List<ComplaintSuggestion> selectUser(ComplaintSuggestion complaintSuggestion) {
+        return complaintMapper.selectUser(complaintSuggestion);
     }
 }
