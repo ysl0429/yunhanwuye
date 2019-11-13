@@ -32,9 +32,9 @@
 
     </delete>
 
-    <!--查找单元号-->
+    <!--查找楼栋单元号-->
     <select id="selB" parameterType="GmdRoom" resultType="GmdRoom">
-        select * from building
+        select * from building where buildingStatus=0
 
     </select>
     <!--通过楼层查找楼层总数-->

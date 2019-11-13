@@ -19,7 +19,7 @@ public class RepairController {
         return "repairList";
     }
 //    查询数据
-   @RequestMapping("listDataRepair")
+       @RequestMapping("listDataRepair")
    @ResponseBody
     public tableResult<Map> listData(pageCount pageCount, RepairList repairList){
 

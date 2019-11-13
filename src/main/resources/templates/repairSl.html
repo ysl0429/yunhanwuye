@@ -8,6 +8,19 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
+
+<!--<form class="layui-form" th:each="r:${repairList}">-->
+    <!--<div class="layui-form-item">-->
+        <!--<label class="layui-form-label">所属房间：</label>-->
+    <!--<div class="layui-input-block">-->
+        <!--<input type="text" name="roomno" th:value="${r.roomno}" lay-verify="title" autocomplete="off"  class="layui-input" disabled="disabled">-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+
+
+<!--</form>-->
 <form class="layui-form">
     <input type="hidden" th:value="${repairList.repairlistid}" name="repairlistid">
     <div class="layui-form-item">
@@ -67,14 +80,14 @@
         </ul>
         <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">受理人：</label>
-                    <div class="layui-input-block">
-                        <select name="finishren" lay-verify="">
-                            <option th:each="n:${nname}" th:value="${n.nick_name}" th:text="${n.nick_name}"></option>
-                        </select>
-                    </div>
-                </div>
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="layui-form-label">受理人：</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<select name="finishren" lay-verify="">-->
+                            <!--<option th:each="n:${nname}" th:value="${n.nick_name}" th:text="${n.nick_name}"></option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="layui-form-item">
                     <label class="layui-form-label">要求完成时间：</label>
                     <div class="layui-input-block">
@@ -92,7 +105,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">受理人：</label>
                     <div class="layui-input-block">
-                        <select name="finishren" lay-verify="">
+                        <select name="nick_name" >
                             <option th:each="n:${nname}" th:value="${n.nick_name}" th:text="${n.nick_name}"></option>
                         </select>
                     </div>
@@ -108,8 +121,8 @@
     </div>
 
     <div style="margin-left: 210px">
-        <button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="tijiao">提交</button>
-    </div>
+    <button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="tijiao">提交</button>
+</div>
 </form>
 <script type="text/javascript">
     layui.use(['form', 'layer', 'laydate','element'], function(){
