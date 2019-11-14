@@ -85,18 +85,13 @@ public class GmdPayController {
     public com.yunhan.entity.ResultOne<com.yunhan.entity.GmdPay> upPay(com.yunhan.entity.GmdPay gmdPay){
 
 
-
-        int a=gmdPayService.selPay(gmdPay);
         com.yunhan.entity.ResultOne result=new com.yunhan.entity.ResultOne();
-        if(a>0){
-            result.setMsg("已存在");
-            result.setData(false);
-        }else {
+
             gmdPayService.upPay(gmdPay);
             result.setMsg("修改成功");
             result.setData(true);
 
-        }
+
         return result;
 
     }
