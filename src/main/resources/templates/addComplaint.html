@@ -51,7 +51,7 @@
             <input type="text" name="complainanteventdescription" placeholder="请输入事件描述"  class="layui-input">
         </div>
     </div>
-    <div class="layui-tab">
+    <!--<div class="layui-tab">
         <ul class="layui-tab-title">
             <li class="layui-this">受理信息</li>
         </ul>
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div style="margin-left: 210px">
         <button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="tijiao">提交</button>
@@ -85,12 +85,13 @@
             ,$=layui.jquery;//定义$
             laydate.render({
             elem: '#complainanttime'
+           ,trigger:'click'
         });
         //监听提交
         form.on('submit(tijiao)', function(data){
             //data.field表单所有信息
             if($("#complainant").val()==""){
-                alert("所属房间不能为空！") ;
+                alert("投诉人不能为空！") ;
                 return false;
             }
 

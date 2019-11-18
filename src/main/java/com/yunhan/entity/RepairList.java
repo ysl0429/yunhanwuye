@@ -31,6 +31,24 @@ public class RepairList {
     private double price;
     private double total;
     private Integer payitemsid;
+    private String unitnumber;
+    private String floornumber;
+
+    public String getUnitnumber() {
+        return unitnumber;
+    }
+
+    public void setUnitnumber(String unitnumber) {
+        this.unitnumber = unitnumber;
+    }
+
+    public String getFloornumber() {
+        return floornumber;
+    }
+
+    public void setFloornumber(String floornumber) {
+        this.floornumber = floornumber;
+    }
 
     public Integer getRoomid() {
         return roomid;

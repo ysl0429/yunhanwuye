@@ -58,10 +58,12 @@
                 [ //表头
                     {type: 'checkbox', fixed: 'left'}
                     ,{field: 'repairListId', title: '报修编号', width:80, sort: true, fixed: 'left'}
-                    ,{field: 'roomNo', title: '房间编号', width:150}
-                    ,{field: 'clientname', title: '联系人', width: 90, sort: true}
-                    ,{field: 'contactsNumber', title: '联系电话', width:150, sort: true}
-                    ,{field: 'repairType', title: '报修类型', width: 150, sort: true}
+                    ,{field: 'unitNumber', title: '单元号', width:80}
+                    ,{field: 'floorNumber', title: '楼层号', width:80}
+                    ,{field: 'roomNo', title: '房间编号', width:100}
+                    ,{field: 'clientname', title: '联系人', width: 90}
+                    ,{field: 'contactsNumber', title: '联系电话', width:150}
+                    ,{field: 'repairType', title: '报修类型', width: 150}
                     ,{field:'repairProject', width:80, title: '报修项目'}
                     ,{field:'problemDescription', width:100, title: '问题描述'}
                     ,{field:'statu', width:80, title: '状态',
@@ -71,14 +73,17 @@
                             }else if(res.statu == 1){
                                 return "已收费";
                             }
-                            else if(res.statu == 2){
+                            else if(res.statu == 10){
                                 return "已完工";
                             }
                             else if(res.statu == 3){
                                 return "已撤销";
                             }
-                            else{
+                            else if(res.statu == 7){
                                 return "已派工";
+                            }
+                            else{
+                                return "未派工";
                             }
                         }
                     }
@@ -98,8 +103,6 @@
                     }
                     ,{field:'requiredCompletionTime',width:100, title: '要求完成时间'}
                     ,{field:'source',width:100, title: '来源'}
-                    ,{field:'importanceDegree',width:100, title: '重要程度'}
-                    ,{field:'workOrderNumber',width:100, title: '工单编号'}
                     ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
                 ]
             ]

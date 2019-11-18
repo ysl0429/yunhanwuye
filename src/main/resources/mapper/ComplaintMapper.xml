@@ -30,13 +30,13 @@
        select * from complaintSuggestion c left join room r on c.roomid=r.roomID where complaintSuggestionId=#{complaintsuggestionid}
     </select>
     <update id="updateComplaint" parameterType="ComplaintSuggestion">
-         update complaintsuggestion set complainantProcessingState=0,finishedstate=0,dealingwithremarks=#{dealingwithremarks} where complaintSuggestionId=#{complaintsuggestionid}
+         update complaintsuggestion set complainantProcessingState=0,finishedstate=0,dealingwithremarks=#{dealingwithremarks},dealingWithPeople=#{dealingwithpeople},dealingWithTime=NOW() where complaintSuggestionId=#{complaintsuggestionid}
     </update>
     <select id="selectComplaintSuggestionById2" parameterType="int" resultType="ComplaintSuggestion">
        select * from complaintSuggestion c left join room r on c.roomid=r.roomID where complaintSuggestionId=#{complaintsuggestionid}
     </select>
     <update id="updateComplaint2" parameterType="ComplaintSuggestion">
-         update complaintsuggestion set complainantProcessingState=1,degreeofsatisfaction=#{degreeofsatisfaction},returnNotes=#{returnnotes},finishedstate=0 where complaintSuggestionId=#{complaintsuggestionid}
+         update complaintsuggestion set complainantProcessingState=1,degreeofsatisfaction=#{degreeofsatisfaction},returnNotes=#{returnnotes},finishedstate=0,revisitDays=NOW() where complaintSuggestionId=#{complaintsuggestionid}
     </update>
     <delete id="delete2" parameterType="Integer">
         delete from complaintsuggestion where complaintSuggestionId=#{complaintsuggestionid}

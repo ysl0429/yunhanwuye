@@ -55,11 +55,11 @@
                 [ //表头
 
                     {field: 'complaintSuggestionId', title: '投诉编号', width:80, sort: true, fixed: 'left'}
-                    ,{field: 'roomNo', title: '房间编号', width:150}
+                    ,{field: 'roomNo', title: '房间编号', width:80}
                     ,{field: 'complainant', title: '投诉人', width: 90, sort: true}
                     ,{field: 'complainantNumber', title: '投诉人联系方式', width:150, sort: true}
                     ,{field: 'complainantType', title: '投诉类型', width: 150, sort: true}
-                    ,{field:'complainantTime', width:80, title: '投诉时间'}
+                    ,{field: 'complainantTime', width:80, title: '投诉时间'}
                     ,{field:'complainantEventDescription', width:100, title: '投诉事件描述'}
                     ,{field:'complainantProcessingState', width:80, title: '投诉处理状态',
                         templet: function(res){
@@ -75,7 +75,7 @@
                     ,{field:'dealingWithPeople', title: '处理人', width: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
                     ,{field:'dealingWithTime',width:100, title: '处理时间'}
                     ,{field:'dealingWithRemarks', width:100,title: '处理备注'}
-                    ,{field:'visitor',width:100, title: '回访人'}
+                    ,{field:'dealingWithPeople',width:100, title: '回访人'}
                     ,{field:'revisitDays',width:100, title: '回访时间'}
                     ,{field:'returnNotes',width:100, title: '回访备注'}
                     ,{field:'degreeOfSatisfaction',width:100, title: '满意程度'}
@@ -103,7 +103,7 @@
                      //添加
                      layer.open({
                          type:2,      //layer的5种层类型   0（信息框，默认）、1（页面层）、2（iframe层）、3（加载层）、4（tips层）
-                         title: ['新增报修单', 'font-size:18px;'],  //弹出框标题
+                         title: ['新增投诉单', 'font-size:18px;'],  //弹出框标题
                          area: ['600px','500px'],    //设置弹框的大小
                        shadeClose:true,          //点击遮罩层外区域关闭遮罩层
                          offset:'t',

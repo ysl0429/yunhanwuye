@@ -21,10 +21,10 @@
        </where>
    </select>
    <insert id="addRepairList" parameterType="RepairList">
-        insert into repairList(repairlistid,roomid,contactsnumber,repairtype,repairproject,problemdescription,timeofappointment,
-	        completiontime,finishren,completeremarks)
-        values(null,#{roomid},#{contactsnumber},#{repairtype},#{repairproject},#{problemdescription},#{timeofappointment},
-            #{completiontime},#{finishren},#{completeremarks});
+        insert into repairList(repairlistid,unitnumber,floornumber,roomid,contactsnumber,repairtype,repairproject,problemdescription,timeofappointment,
+	        completiontime,finishren,completeremarks,source)
+        values(null,#{unitnumber},#{floornumber},#{roomid},#{contactsnumber},#{repairtype},#{repairproject},#{problemdescription},#{timeofappointment},
+            #{completiontime},#{finishren},#{completeremarks},'WEB系统');
    </insert>
     <select id="selectRepairListById" parameterType="int" resultType="RepairList">
        select * from repairlist r LEFT JOIN room ro ON r.roomid= ro.roomid LEFT JOIN clientmessage c ON ro.clientmessageId=c.clientmessageId where repairListId=#{repairlistid}
@@ -39,13 +39,13 @@
        select * from repairlist r LEFT JOIN room ro ON r.roomid= ro.roomid LEFT JOIN clientmessage c ON ro.clientmessageId=c.clientmessageId where repairListId=#{repairlistid}
     </select>
     <update id="updateSl" parameterType="RepairList">
-         update repairlist set statu=4,finishRen=#{finishren},acceptedRemarks=#{acceptedremarks},workRemarks=#{workremarks},chargeProject=#{chargeproject},chargeType=#{chargetype},price=#{price}  where repairListId=#{repairlistid}
+         update repairlist set statu=7,finishRen=#{finishren},acceptedRemarks=#{acceptedremarks},workRemarks=#{workremarks},chargeProject=#{chargeproject},chargeType=#{chargetype},price=#{price}  where repairListId=#{repairlistid}
     </update>
     <update id="updateSf" parameterType="RepairList">
-         update repairlist set statu=1,chargestatus=1,chargeProject=#{chargeproject},chargeType=#{chargetype},price=#{price},finishRen=#{finishren}  where repairListId=#{repairlistid}
+         update repairlist set statu=1,chargestatus=1,chargeProject=#{chargeproject},chargeType=#{chargetype},price=#{price},finishRen=#{finishren} where repairListId=#{repairlistid}
     </update>
     <update id="updateYwwc" parameterType="RepairList">
-         update repairlist set statu=10,finishRen=#{finishren},completeRemarks=#{completeremarks},degreeofsatisfaction=#{degreeofsatisfaction}  where repairListId=#{repairlistid}
+         update repairlist set statu=10,finishRen=#{finishren},completeRemarks=#{completeremarks},degreeofsatisfaction=#{degreeofsatisfaction},completiontime=NOW()  where repairListId=#{repairlistid}
     </update>
     <delete id="deleteRepairList" parameterType="Integer">
         delete from repairlist where repairListId=#{repairlistid}

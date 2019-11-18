@@ -10,7 +10,28 @@
 
 <body>
 <form class="layui-form">
-    <div style="margin-top: 20px;margin-left: 28px;">报修类型：</div>
+    <div style="margin-top: 20px;margin-left: 28px;">单元号：</div>
+    <div class="layui-form-item" style="width:240px;margin-left: 110px; margin-top: -20px;">
+        <select name="unitnumber" lay-verify="">
+            <option value="">请选择单元楼</option>
+            <option value="A单元">A单元</option>
+            <option value="B单元">B单元</option>
+            <option value="C单元">C单元</option>
+        </select>
+    </div>
+    <div style="margin-top: 20px;margin-left: 28px;">楼层号：</div>
+    <div class="layui-form-item" style="width:240px;margin-left: 110px; margin-top: -20px;">
+        <select name="floornumber" lay-verify="">
+            <option value="">请选择楼层</option>
+            <option value="一层">一层</option>
+            <option value="二层">二层</option>
+            <option value="三层">三层</option>
+            <option value="四层">四层</option>
+            <option value="五层">五层</option>
+            <option value="六层">六层</option>
+        </select>
+    </div>
+    <div style="margin-top: 20px;margin-left: 28px;">房间号：</div>
     <div class="layui-form-item" style="width:240px;margin-left: 110px; margin-top: -20px;">
         <select th:name="roomid" lay-verify="">
             <option th:each="r:${rc}" th:value="${r.roomid}" th:text="${r.roomno}"></option>
@@ -50,6 +71,7 @@
             <input type="text" name="problemdescription" placeholder="请输入问题描述"  class="layui-input">
         </div>
     </div>
+
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">预约时间</label>
@@ -58,7 +80,6 @@
             </div>
         </div>
     </div>
-
     <div style="margin-left: 210px">
         <button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="tijiao">提交</button>
         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -73,6 +94,7 @@
             ,$=layui.jquery;//定义$
             laydate.render({
             elem: '#timeofappointment'
+            ,trigger:'click'
         });
 
 
@@ -104,6 +126,14 @@
         //监听提交
         form.on('submit(tijiao)', function(data){
             //data.field表单所有信息
+            if($("#unitnumber").val()==""){
+                alert("单元楼不能为空！") ;
+                return false;
+            }
+            if($("#floornumber").val()==""){
+                alert("楼层号不能为空！") ;
+                return false;
+            }
             if($("#roomnumber").val()==""){
                 alert("所属房间不能为空！") ;
                 return false;
